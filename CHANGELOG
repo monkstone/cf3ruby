@@ -1,0 +1,3 @@
+v0.3. First Gem Release
+  * very much base on jashkenas context-free.rb updated
+  * for ruby-1.9 syntax (and DSL nearer to CF3 than the original cfdg)
