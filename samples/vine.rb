@@ -1,4 +1,6 @@
-load_library 'cf3'
+# vine.rb by jashkenas, click mouse to re-run
+
+require 'cf3'
 
 def setup_the_vine
   

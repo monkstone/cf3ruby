@@ -1,4 +1,6 @@
-load_library 'cf3'  # NB: requires ruby 1.9 for rand range
+# city.rb after city.cfdg
+
+require 'cf3'  # NB: requires ruby 1.9 for rand range
 
 def setup_the_city
   @city = ContextFree.define do

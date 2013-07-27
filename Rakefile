@@ -5,7 +5,7 @@ task :install => :build do
 end
 
 task :build do
-  sh "gem build ruby-processing.gemspec"
+  sh "gem build cf3ruby.gemspec"
 end
 
 task :test do

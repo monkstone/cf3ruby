@@ -3,7 +3,7 @@
 # demonstrates the vbar
 # custom terminal
 #########################
-load_library :cf3
+require 'cf3'
 
 
 def setup_the_barcode

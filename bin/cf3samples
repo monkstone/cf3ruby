@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+#####
+# Extract samples into users home directory
+#####
+
+
+home = ENV["HOME"]
+local = home + '/cf3samples'
+file = __FILE__
+require "pathname" 
+require "fileutils"
+file = Pathname.new(file).realpath
+
+sample_dir = File.expand_path(File.dirname(file) + "/../samples")
+FileUtils.mkdir local unless Dir.exists? local
+FileUtils.cp_r sample_dir, local

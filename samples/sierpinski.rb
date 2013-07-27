@@ -1,4 +1,6 @@
-load_library 'cf3', 'control_panel'
+require 'cf3' 
+
+load_library 'control_panel'
 
 attr_accessor :resolution, :panel
 
@@ -36,7 +38,7 @@ def setup
 end
 
 def draw
-  panel.set_visible(true) if self.visible	
+  panel.set_visible(self.visible) # display panel after sketch frame
   background 0.1
   @triangle.render :tri, size: height/1.1, color: [0, 0.5, 1], stop_size: @resolution, start_y: height/1.65
 end

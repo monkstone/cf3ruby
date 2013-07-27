@@ -1,7 +1,8 @@
 #########################
-# hex_tube.rb 
+# grapher.rb by Martin Prout after grapher.cfdg 
 #########################
-load_library :cf3
+require 'cf3'
+#load_library :cf3
 
 def setup_the_hextube
   @hexa = ContextFree.define do

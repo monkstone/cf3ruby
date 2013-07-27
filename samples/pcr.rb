@@ -1,10 +1,10 @@
 ##############################
-# electrophoresis.rb 
+# electrophoresis.rb whatever
 # demonstrates the hbar custom
 # terminal. Also weighted rules
 # by Martin Prout
 ##############################
-load_library 'cf3'
+require 'cf3'
 
 def setup_the_gel
   @pcr = ContextFree.define do

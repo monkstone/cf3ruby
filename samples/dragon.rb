@@ -1,6 +1,6 @@
-# contributed by Martin Prout
+# by Martin Prout
 
-load_library :cf3
+require 'cf3'
 
 def setup_the_dragon
   @dragon = ContextFree.define do

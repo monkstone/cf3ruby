@@ -12,6 +12,8 @@ doc/
 lib/bundler/man
 pkg
 rdoc
+samples/*.pdf
+samples/*.png
 spec/reports
 test/tmp
 test/version_tmp

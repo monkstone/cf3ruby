@@ -1,7 +1,8 @@
 #########################
-# hex_tube.rb 
+# hextube.rb by Martin Prout 
 #########################
-load_library :cf3
+require 'cf3'
+#load_library :cf3
 
 def setup_the_hextube
   @hexa = ContextFree.define do
@@ -25,9 +26,9 @@ def setup_the_hextube
       hexa brightness: 1.0 
     end
   
-    shape :hexa do 
+    shape :hexa do |i = nil, j = 0.5|
       hexagon size: 1, brightness: 1.0 
-      hexa size: 0.9, rotation: 5 
+      hexa size: 0.9, rotation: 5 *j
     end
   end
 end

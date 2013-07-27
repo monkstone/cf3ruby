@@ -1,9 +1,9 @@
 #########################
 # rubystar.rb 
 #########################
-load_library :cf3 
+require 'cf3' 
 
-PHI = (1 + Math.sqrt(5))/2
+PHI = (1 + Math.sqrt(5)) / 2
 
 def setup_the_sunstar
   @hexa = ContextFree.define do

@@ -1,5 +1,5 @@
-# y.rb ruby-processing
-load_library 'cf3'
+# y.rb ruby-processing by Martin Prout
+require 'cf3'
 Y_TOP = -1 / Math.sqrt(3) 
 Y_BOT = Math.sqrt(3) / 6
 

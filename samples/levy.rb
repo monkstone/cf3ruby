@@ -1,5 +1,5 @@
 # levy.rb ruby-processing NB: :alpha is now implemented ruby-processing
-load_library 'cf3'
+require 'cf3'
 
 def setup_the_levy
   @levy = ContextFree.define do
