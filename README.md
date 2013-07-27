@@ -7,17 +7,18 @@ Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is up
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
-Add this line to your application's Gemfile:
+To use this library you need install jruby (preferably jruby-1.7.4+), you will also need ruby-prcessing to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
 
-    gem 'cf3ruby'
+```bash
+cd cf3ruby 
+jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
+jruby -S install cf3-0.0.1.gem # may need sudo access
+```
 
-And then execute:
+I'm working on bundler and or rubygems installation
 
-    $ bundle
 
-Or install it yourself as:
 
-    $ gem install cf3
 
 ## Usage
 
