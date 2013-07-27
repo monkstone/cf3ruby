@@ -17,10 +17,11 @@ Gem::Specification.new do |spec|
   EOF
   spec.summary       = %q{A ruby-DSL library for CF3 sketches}
   spec.homepage      = "http://learning-ruby-processing.blogspot.co.uk/"
+  spec.default_executable   = "cf3samples" 
   spec.license       = "GPL3"
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.executables   = ["cf3samples"] 
   spec.require_paths = ["lib"]
   spec.add_runtime_dependency 'ruby-processing', '>= 1.0.11'
   spec.add_development_dependency "bundler", "~> 1.3"
