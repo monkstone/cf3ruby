@@ -22,6 +22,11 @@ I'm working on bundler and or rubygems installation
 
 ## Usage
 
+Extract the included samples to your home directory
+```bash
+jruby -S cf3samples
+```
+
 As for ruby-processing, requires the external jruby flag
 ```bash
 rp5 run --jruby city.rb # this is why you need to install ruby-processing and cf3ruby using jruby
