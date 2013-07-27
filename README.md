@@ -26,7 +26,7 @@ TODO: Write usage instructions here
 ## Contributing
 
 [Contributing][]
-[contributing][CONTRIBUTING.md]
+[contributing]:CONTRIBUTING.md
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
 
