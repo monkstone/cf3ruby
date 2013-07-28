@@ -24,6 +24,7 @@ jruby -S gem install cf3-0.0.1.gem # may need sudo access
 Either clone this repository, or download a [snapshot].
 
 ```bash
+cd cf3
 bundle install
 ```
 
