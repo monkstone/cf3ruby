@@ -7,7 +7,8 @@ Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is up
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
-To use this library you need install jruby (preferably jruby-1.7.4+), you will also need ruby-processing to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
+To use this library you need install jruby (preferably jruby-1.7.4+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
+[ruby-processing]:https://github.com/jashkenas/ruby-processing/
 
 ***rake test and gem install***
 
