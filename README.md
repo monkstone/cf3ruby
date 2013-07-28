@@ -41,7 +41,7 @@ As for running ruby-processing, it requires the external jruby flag
 rp5 run --jruby city.rb # this is why you should install both ruby-processing and cf3ruby using jruby
 
 ```
-You should read the [ruby-processing_documentation][] documentation on using rubygems.
+You should read the [ruby-processing_documentation][] on using rubygems.
 
 ## Contributing
 
