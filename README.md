@@ -7,10 +7,9 @@ Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is up
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
-To use this library you need install jruby (preferably jruby-1.7.4+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
-[ruby-processing]:https://github.com/jashkenas/ruby-processing/
-
+To use this library you need install jruby (preferably jruby-1.7.4+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.1.0). There are three ways you can install this library:-
 ***rake test and gem install***
+Either clone this repository, or download a [snapshot][].
 
 ```bash
 cd cf3ruby 
@@ -19,6 +18,8 @@ jruby -S gem install cf3-0.0.1.gem # may need sudo access
 ```
 
 ***local bundle install***
+Either clone this repository, or download a [snapshot].
+
 ```bash
 bundle install
 ```
@@ -48,6 +49,7 @@ You should read the [ruby-processing_documentation][] on using rubygems.
 [Contributing][]
 [contributing]:CONTRIBUTING.md
 [ruby-processing_documentation]:https://github.com/jashkenas/ruby-processing/wiki/Using-Rubygems/
+[snapshot]:https://github.com/monkstone/cf3ruby/releases
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
 
