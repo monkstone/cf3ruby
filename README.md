@@ -9,6 +9,7 @@ Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is up
 
 To use this library you need install jruby (preferably jruby-1.7.4+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.1.0). There are three ways you can install this library:-
 ***rake test and gem install***
+
 Either clone this repository, or download a [snapshot][].
 
 ```bash
@@ -18,6 +19,7 @@ jruby -S gem install cf3-0.0.1.gem # may need sudo access
 ```
 
 ***local bundle install***
+
 Either clone this repository, or download a [snapshot].
 
 ```bash
