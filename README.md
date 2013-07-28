@@ -7,18 +7,25 @@ Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is up
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
-To use this library you need install jruby (preferably jruby-1.7.4+), you will also need ruby-prcessing to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
+To use this library you need install jruby (preferably jruby-1.7.4+), you will also need ruby-processing to be installed (minimum version 1.0.11, preferred version 2.1.0). Either clone this repository, or download a snapshot.
+***rake test and gem install***
 
 ```bash
 cd cf3ruby 
 jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
-jruby -S install cf3-0.0.1.gem # may need sudo access
+jruby -S gem install cf3-0.0.1.gem # may need sudo access
 ```
 
-I'm working on bundler and or rubygems installation
+***local bundle install***
+```bash
+bundle install
+```
 
-
-
+***gem install for rubygems***
+```bash
+gem install cf3
+```
+it couldn't be easier could it?
 
 ## Usage
 
@@ -27,15 +34,18 @@ Extract the included samples to your home directory
 jruby -S cf3samples
 ```
 
-As for ruby-processing, requires the external jruby flag
+As for running ruby-processing, it requires the external jruby flag
 ```bash
-rp5 run --jruby city.rb # this is why you need to install ruby-processing and cf3ruby using jruby
+rp5 run --jruby city.rb # this is why you should install both ruby-processing and cf3ruby using jruby
+
 ```
+You should read the [ruby-processing][] documentation on using rubygems.
 
 ## Contributing
 
 [Contributing][]
 [contributing]:CONTRIBUTING.md
+[ruby-processing]:https://github.com/jashkenas/ruby-processing/wiki/Using-Rubygems/
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
 
