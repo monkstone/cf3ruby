@@ -22,7 +22,7 @@ jruby -S gem install cf3-0.0.1.gem # may need sudo access
 bundle install
 ```
 
-***gem install for rubygems***
+***gem install from rubygems***
 ```bash
 gem install cf3
 ```
