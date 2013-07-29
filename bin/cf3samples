@@ -5,7 +5,7 @@
 
 
 home = ENV["HOME"]
-local = home + '/cf3samples'
+local = home + '/cf3work'
 file = __FILE__
 require "pathname" 
 require "fileutils"
