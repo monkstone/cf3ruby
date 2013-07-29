@@ -26,7 +26,7 @@ Either clone this repository, or download a [snapshot].
 ```bash
 cd cf3
 bundle install          # using regular installed bundler may need to set GEM_PATH
-jruby -S bundle install # if you installed bundler there
+jruby -S bundle install # if you installed bundler with jruby
 ```
 
 ***gem install from rubygems***
