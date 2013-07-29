@@ -1,3 +1,8 @@
-v0.3. First Gem Release
+v0.0.2 Second Gem Release
+  * extract samples to cf3work/samples, was cf3samples/samples
+  * gives me an opportunity to create a lock for bundler?
+
+
+v0.0.1. First Gem Release
   * very much base on jashkenas context-free.rb updated
   * for ruby-1.9 syntax (and DSL nearer to CF3 than the original cfdg)
