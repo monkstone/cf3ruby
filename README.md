@@ -25,12 +25,14 @@ Either clone this repository, or download a [snapshot].
 
 ```bash
 cd cf3
-bundle install
+bundle install          # using regular installed bundler may need to set GEM_PATH
+jruby -S bundle install # if you installed bundler there
 ```
 
 ***gem install from rubygems***
 ```bash
-gem install cf3
+gem install cf3            # regular install may need to set GEM_PATH env variable
+jruby -S gem install cf3   # jruby install 
 ```
 it couldn't be easier could it?
 
@@ -38,7 +40,8 @@ it couldn't be easier could it?
 
 Extract the included samples to your home directory
 ```bash
-jruby -S cf3samples
+cf3samples           # should work
+jruby -S cf3samples  # else if installed with jruby this should also work
 ```
 
 As for running ruby-processing, it requires the external jruby flag
