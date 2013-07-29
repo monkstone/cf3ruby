@@ -38,7 +38,7 @@ it couldn't be easier could it?
 
 ## Usage
 
-Extract the included samples to your home directory
+Extract the included samples to your home directory (HOME/cf3work/samples)
 ```bash
 cf3samples           # should work
 jruby -S cf3samples  # else if installed with jruby this should also work
