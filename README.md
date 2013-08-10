@@ -44,7 +44,7 @@ cf3samples           # should work
 jruby -S cf3samples  # else if installed with jruby this should also work
 ```
 
-As for running ruby-processing, it requires the external jruby flag
+As for running ruby-processing, it requires the external ( _only prior to ruby-processing-2.1.2_ ) jruby flag
 ```bash
 rp5 run --jruby city.rb # this is why you should install both ruby-processing and cf3ruby using jruby
 
