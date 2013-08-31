@@ -1,6 +1,6 @@
 # Contributed by Monkstone.
 
-load_library :cf3
+require 'cf3'
 
 def setup_the_spiral
   @spiral = ContextFree.define do
@@ -16,7 +16,7 @@ def setup_the_spiral
     end
     
     shape :base do
-       triangle hue: 0.5
+       triangle hue: 180
        base rotation:  3, size: 0.98, x: 0.09, brightness: 1.01
     end
     

@@ -1,4 +1,7 @@
 require 'cf3'
+#############
+# to be fixed
+#############
 
 GOLD = [33, 0.967, 0.592, 1]
 BLACK = [0, 0.909, 0.129, 1]
@@ -65,9 +68,18 @@ def setup_the_tiles
     shape :tiles do
       20.times do |i|
         20.times do |j|
-          wavy_triangle size: 1, x: (i + 0.5 * j%2), y: j * 0.9, color: COLORS[i % 5]
+	  split do	
+            wavy_triangle size: 1, x: (i + 0.5 * j%2), y: j * 0.9, color: COLORS[i % 5]
+	    rewind
+	    star size: 0.4, x: (2.5 * i - 1.25 * j%2) +0.4, y: (j * 2.5 * 0.9) + 1.25, color: COLORS[j % 5]
+	  end
         end
       end
+    end
+
+    shape :star do
+      triangle 
+      triangle rotation: 180
     end
   end
 end

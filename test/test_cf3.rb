@@ -5,15 +5,14 @@ def setup
   @triangle = ContextFree.define do
     shape :tri do
       circle      
-      triangle brightness: 0
-      circle brightness: 10, size: 0.02
+      triangle brightness: 0.8
+      circle brightness: 1.0, size: 0.02
     end
   end 
-  color_mode HSB, 1.0
 end
 
 def draw_it
-  background 1.0  
+  background 0.2 
   @triangle.render :tri, size: height/2
 end
 

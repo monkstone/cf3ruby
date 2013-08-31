@@ -47,21 +47,21 @@ def setup_the_sunstar
     
     shape :sunstar do
       split do
-      sun brightness: 0.8 
+      sun brightness: 0.9, alpha: 1.0 
       rewind
-      star brightness: 0.8, alpha: 0.8
+      star brightness: 0.9, alpha: 0.8
       rewind
       end
     end
     
     shape :dart do
-      flat size: 1, color: [0.18, 0.6, 0.6] 
-      flat size: 1, color: [0.18, 1.0, 1.0], flip: true
+      flat size: 1, hue: 65, sat: 0.9, brightness: 0.9 
+      flat size: 1, hue: 65, sat: 1.0, brightness: 1.0, flip: true
     end
     
     shape :kite do 
-      sharp size: 1, color: [0, 0.6, 0.6] 
-      sharp size: 1, color: [0, 1.0, 1.0], rotation: 180, flip: true
+      sharp size: 1, hue: 0, sat: 0.9, brightness: 0.9 
+      sharp size: 1, hue: 0, sat: 1.0, brightness: 1.0, rotation: 180, flip: true
     end
     
     shape :star do      
@@ -85,9 +85,8 @@ def setup_the_sunstar
 end
 
 def setup
-  size 800, 820
-  background 150, 20, 0 
-  smooth
+  size 800, 800
+  background 255  
   setup_the_sunstar
   draw_it
 end

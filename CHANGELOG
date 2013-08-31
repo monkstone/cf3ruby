@@ -1,3 +1,8 @@
+v0.0.3 Change to use HSB 360 1 1 1 (ie just like cfdg)
+  * rotation of primitives like shapes now in degrees (vs radians)
+  * examples updated, includes a colorful alhambra design
+
+
 v0.0.2 Second Gem Release
   * extract samples to cf3work/samples, was cf3samples/samples
   * gives me an opportunity to create a lock for bundler?

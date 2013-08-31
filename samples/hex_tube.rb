@@ -43,5 +43,5 @@ end
 
 def draw_it
   @hexa.render :hextube, start_x: width/2, start_y: height/2, 
-               size: height/2.1, color: [0, 1, 1, 0.5]
+               size: height/2.1, color: [60, 1, 1, 0.5]
 end

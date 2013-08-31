@@ -36,12 +36,12 @@ def setup_the_gel
     end
  
     shape :band do       # narrow band with 0.66' probability        
-      hbar size: 0.8, ht: 0.1, brightness: 0.3, alpha: 0.3, hue: 0.7, saturation: 1.0
+      hbar size: 0.8, ht: 0.1, brightness: 0.3, alpha: 0.3, hue: 251, saturation: 1.0
       band brightness: 0.5
     end
  
     shape :band, 0.5 do   # double width band with 0.33' probability      
-      hbar size: 0.8, ht: 0.15, brightness: 0.8, alpha: 0.6, hue: -0.1, saturation: 1.0
+      hbar size: 0.8, ht: 0.15, brightness: 0.8, alpha: 0.6, hue: -36, saturation: 1.0
       band brightness: 0.5
     end
  
@@ -81,7 +81,7 @@ end
 
 def draw_it
   @pcr.render :gel, start_x: -50, start_y: height/2, 
-               size: height/5, color: [0.7, 0.8, 0.8, 1.0]
+               size: height/5, color: [252, 0.8, 0.8, 1.0]
 end
 
 def mouse_clicked

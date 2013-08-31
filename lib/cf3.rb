@@ -14,7 +14,7 @@ module Processing
     HSB_ORDER         = {hue: 0, saturation: 1, brightness: 2, alpha: 3}
     TRIANGLE_TOP      = -1 / Math.sqrt(3)
     TRIANGLE_BOTTOM   = Math.sqrt(3) / 6
-
+    RADIANS = (Math::PI / 180.0)
     # Define a context-free system. Use this method to create a ContextFree
     # object. Call render() on it to make it draw.
     def self.define(&block)
@@ -96,7 +96,7 @@ module Processing
         when :x, :y
           old_ops[key] = value * old_ops[:size]
         when :rotation
-          old_ops[key] = value * (Math::PI / 180.0)
+          old_ops[key] = value * RADIANS
         when :hue, :saturation, :brightness, :alpha
           adjusted = old_ops[:color].dup
           adjusted[HSB_ORDER[key]] *= value
@@ -170,7 +170,7 @@ module Processing
                  rotation: 0, flip: false,
                  size: 20, width: 20, height: 20,
                  start_x: width/2, start_y: height/2,
-                 color: [0.5, 0.5, 0.5, 1],
+                 color: [180, 0.5, 0.5, 1],
                  stop_size: 1.5}
       @values.merge!(starting_values)
       @finished = false
@@ -178,7 +178,7 @@ module Processing
       @app.rect_mode CENTER
       @app.ellipse_mode CENTER
       @app.no_stroke
-      @app.color_mode HSB, 1.0
+      @app.color_mode HSB, 360, 1.0, 1.0, 1.0    # match cfdg
       @app.translate @values[:start_x], @values[:start_y]
       self.send(rule_name, {})
     end
@@ -204,32 +204,35 @@ module Processing
 
     # Square, circle, and ellipse are the primitive drawing
     # methods, but hopefully triangles will be added soon.
-    def square(some_options=nil)
+    def square(some_options={})
       size, options = *get_shape_values(some_options)
+      rot = options[:rotation] 
+      @app.rotate(rot) if rot
       @app.rect(0, 0, size, size)
+      @app.rotate(-rot) if rot  
     end
 
 
-    def circle(some_options=nil)
+    def circle(some_options={})
       size, options = *get_shape_values(some_options)
       @app.ellipse(0, 0, size, size)
     end
 
-    def triangle(some_options=nil)
-      rot = some_options[:rotation]
-      @app.rotate(rot) if rot
+    def triangle(some_options={})
       size, options = *get_shape_values(some_options)
+      rot = options[:rotation] 
+      @app.rotate(rot) if rot
       @app.triangle(0, TRIANGLE_TOP * size, 0.5 * size, TRIANGLE_BOTTOM * size, -0.5 * size, TRIANGLE_BOTTOM * size)
       @app.rotate(-rot) if rot
     end
 
 
     def ellipse(some_options={})
-      rot = some_options[:rotation]
-      @app.rotate(rot) if rot
       size, options = *get_shape_values(some_options)
       width = options[:width] || options[:size]
       height = options[:height] || options[:size]
+      rot = some_options[:rotation] 
+      @app.rotate(rot) if rot
       @app.oval(options[:x] || 0, options[:y] || 0, width, height)
       @app.rotate(-rot) if rot
     end

@@ -86,15 +86,15 @@ def setup_the_birds
             end
             
             shape :bird do
-                wavy_diamond color: [0.7, 1, 1, 1]
+                wavy_diamond color: [38, 1, 1, 1]
             end
             
             shape :bird do
-                wavy_diamond color: [0.5, 1, 1, 1]
+                wavy_diamond color: [180, 1, 1, 1]
             end
             
             shape :bird do
-                wavy_diamond color: [0.1, 1, 1, 1]
+                wavy_diamond color: [36, 1, 1, 1]
             end
             
             shape :bird do
