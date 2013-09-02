@@ -46,7 +46,7 @@ def setup
   smooth
   setup_the_tree
   background 255         # NB color mode here is "RGB 255", within context free definition 
-  draw_it                # the color mode is "HSB 1.0", supports :hue, :saturation, :brightness
+  draw_it                # the color mode is "HSB 360, 1.0....", supports :hue, :saturation, :brightness
   # save_frame "/home/tux/tree4.png"
 end
 
