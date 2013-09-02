@@ -46,11 +46,10 @@ def setup_the_trees
     end
     
     shape :flower do
-      split saturation: 0, brightness: rand(1.3)+4.7, set_width: rand(15)+10, set_height: rand(2)+2 do
-        oval rotation: 0
-        oval rotation: 45
-        oval rotation: 90
-        oval rotation: 135
+      split saturation: 0, brightness: rand(1.3)+4.7, w: rand(15)+10, h: rand(2)+2 do
+	(0 .. 135).step(45) do |rot|      
+          oval rotation: rot
+	end
       end
     end    
   end  
