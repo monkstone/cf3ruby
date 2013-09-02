@@ -1,3 +1,7 @@
+v0.0.4 Introduce :w and :h as options to supplement size
+  * start support for width and height options (:w, :h)
+
+
 v0.0.3 Change to use HSB 360 1 1 1 (ie just like cfdg)
   * rotation of primitives like shapes now in degrees (vs radians)
   * examples updated, includes a colorful alhambra design

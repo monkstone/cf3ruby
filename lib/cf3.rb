@@ -10,7 +10,7 @@ module Processing
 
     attr_accessor :rule, :app, :width, :height
 
-    AVAILABLE_OPTIONS = [:x, :y, :rotation, :size, :flip, :color, :hue, :saturation, :brightness, :alpha]
+    AVAILABLE_OPTIONS = [:x, :y, :w, :h, :rotation, :size, :flip, :color, :hue, :saturation, :brightness, :alpha]
     HSB_ORDER         = {hue: 0, saturation: 1, brightness: 2, alpha: 3}
     TRIANGLE_TOP      = -1 / Math.sqrt(3)
     TRIANGLE_BOTTOM   = Math.sqrt(3) / 6
@@ -103,8 +103,8 @@ module Processing
           old_ops[:color] = adjusted
         when :flip
           old_ops[key] = !old_ops[key]
-        when :width, :height
-          old_ops[key] *= value
+        when :w, :h
+          old_ops[key] = value * old_ops[:size]
         when :color
           old_ops[key] = value
         else # Used a key that we don't know about or trying to set
@@ -168,7 +168,7 @@ module Processing
     def render(rule_name, starting_values={})
       @values = {x: 0, y: 0,
                  rotation: 0, flip: false,
-                 size: 20, width: 20, height: 20,
+                 size: 20, w: nil, h: nil,
                  start_x: width/2, start_y: height/2,
                  color: [180, 0.5, 0.5, 1],
                  stop_size: 1.5}
@@ -206,9 +206,11 @@ module Processing
     # methods, but hopefully triangles will be added soon.
     def square(some_options={})
       size, options = *get_shape_values(some_options)
+      width = options[:w] || options[:size]
+      height = options[:h] || options[:size]
       rot = options[:rotation] 
       @app.rotate(rot) if rot
-      @app.rect(0, 0, size, size)
+      @app.rect(0, 0, width, height)
       @app.rotate(-rot) if rot  
     end
 
@@ -229,8 +231,8 @@ module Processing
 
     def ellipse(some_options={})
       size, options = *get_shape_values(some_options)
-      width = options[:width] || options[:size]
-      height = options[:height] || options[:size]
+      width = options[:w] || options[:size]
+      height = options[:h] || options[:size]
       rot = some_options[:rotation] 
       @app.rotate(rot) if rot
       @app.oval(options[:x] || 0, options[:y] || 0, width, height)
