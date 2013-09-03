@@ -3,7 +3,7 @@ require 'cf3'
 #######################################################
 # This sketch takes some time to develop,             #
 # clicking the mouse, allows you view current state   #
-# final state background green                        #
+# in the final state background will be green         #
 #######################################################
 
 def setup_the_fern

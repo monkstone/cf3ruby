@@ -42,24 +42,23 @@ end
 
 def setup
   size 600, 600
-  # srand 5  uncomment this to get nice looking tree
-  smooth
+  srand 5  # comment this to get variable tree shape
   setup_the_tree
-  background 255         # NB color mode here is "RGB 255", within context free definition 
-  draw_it                # the color mode is "HSB 360, 1.0....", supports :hue, :saturation, :brightness
-  # save_frame "/home/tux/tree4.png"
 end
 
 def draw
   # create a draw loop
 end
 
+#####
+# color: [0, 0, 0, 1] even in HSB this should be black, seems to work...
+#####
 def draw_it
-  @tree.render :trunk, start_x: width/2, start_y: height * 0.9, stop_size: height/150, size: height/15
+  @tree.render :trunk, start_x: width/2, start_y: height * 0.9, stop_size: height/150, size: height/15, color: [0, 0, 0, 1] 
 end
 
 def mouse_clicked
   java.lang.System.gc  # might help to reduce runtime stack blow ups, it happens!
-  background 1
+  background 200
   draw_it
 end
