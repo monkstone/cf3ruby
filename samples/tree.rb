@@ -10,7 +10,7 @@ attr_reader :panel, :hide
 def setup_the_trees
   control_panel do |panel|
     panel.look_feel "Metal"
-    panel.slider :srand, 0..100
+    panel.slider :srand, (0..100), 50
     @panel = panel
   end
   
@@ -58,7 +58,7 @@ end
 
 def setup
   size 800, 800
-  @hide = true
+  @hide = false
   setup_the_trees
   no_stroke
   frame_rate 5

@@ -11,13 +11,13 @@ def setup_the_fern
   @fern = ContextFree.define do
     
     shape :start do
-      fern rotation: 50, hue: 306
+      fern rotation: 8, hue: 306
     end
     
     shape :fern do
-      circle size: 0.75, rotation: -10
+      square size: 0.75, rotation: -49
       split do
-        fern size: 0.92, y: -2, rotation: -5, hue: 306
+        fern size: 0.92, y: -2, rotation: 5, hue: 306
         rewind
         fern size: 0.5, y: -2, rotation: 90
         rewind                                  
