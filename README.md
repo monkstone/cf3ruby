@@ -54,6 +54,7 @@ You should read the [ruby-processing_documentation][] on using rubygems.
 
 [Contributing][]
 [contributing]:CONTRIBUTING.md
+[ruby-processing]:https://github.com/jashkenas/ruby-processing/
 [ruby-processing_documentation]:https://github.com/jashkenas/ruby-processing/wiki/Using-Rubygems/
 [snapshot]:https://github.com/monkstone/cf3ruby/releases
 [context-free.rb]:https://github.com/jashkenas/context_free
