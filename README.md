@@ -2,12 +2,11 @@
 
 **context-free DSL for ruby-1.9 and CF3 syntax** 
 
-Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 syntax. Tested as working with last rubygems release of ruby-processing (v 1.0.11) as well as the current [version][] (v 2.4.0).
-[context-free.rb]:https://github.com/jashkenas/context_free/
+Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.2 and 1.0.11).
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
-To use this library you need install jruby (preferably jruby-1.7.9+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.4.0). There are three ways you can install this library:-
+To use this library you need install jruby (preferably jruby-1.7.9+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.4.2). There are three ways you can install this library:-
 
 ***rake test and gem install***
 
@@ -55,8 +54,10 @@ You should read the [ruby-processing_documentation][] on using rubygems.
 
 [Contributing][]
 [contributing]:CONTRIBUTING.md
+[ruby-processing]:https://github.com/jashkenas/ruby-processing/
 [ruby-processing_documentation]:https://github.com/jashkenas/ruby-processing/wiki/Using-Rubygems/
 [snapshot]:https://github.com/monkstone/cf3ruby/releases
+[context-free.rb]:https://github.com/jashkenas/context_free
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
 
