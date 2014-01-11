@@ -1,4 +1,5 @@
 require 'cf3'
+load_library :vecmath
 
 GOLD = [33, 0.967, 0.592, 1]
 BLACK = [0, 0.909, 0.129, 1]
@@ -18,24 +19,24 @@ def setup_the_tiles
         x0 = options[:x]
         y0 = options[:y]
         pts = Array.new(12)
-        pts[0] = PVector.new(x0, y0 - size/Math.sqrt(3))                  # A
-        pts[1] = PVector.new(x0 - 0.5 * size, y0 + (Math.sqrt(3)*size)/6) # B
-        pts[2] = PVector.new(x0 + 0.5 * size, y0 + (Math.sqrt(3)*size)/6) # C
+        pts[0] = Vec2D.new(x0, y0 - size/Math.sqrt(3))                    # A
+        pts[1] = Vec2D.new(x0 - 0.5 * size, y0 + (Math.sqrt(3)*size) / 6) # B
+        pts[2] = Vec2D.new(x0 + 0.5 * size, y0 + (Math.sqrt(3)*size) / 6) # C
         pts[3] = get_mid_point(pts[0], pts[1])                            # Ab
         pts[4] = get_mid_point(pts[1], pts[2])                            # Bc
         pts[5] = get_mid_point(pts[0], pts[2])                            # Ca
         pts[6] = get_mid_point(pts[0], pts[3])                            # Aba
-        adjust_bezier(pts[6], PI/3, disp*size)                            # Aba
+        pts[6] += adjust_bezier(PI/3, disp*size)                          # Aba
         pts[7] = get_mid_point(pts[3], pts[1])                            # Abb
-        adjust_bezier(pts[7], PI/3, -disp*size)                           # Abb
+        pts[7] += adjust_bezier(PI/3, -disp*size)                         # Abb
         pts[8] = get_mid_point(pts[1], pts[4])
-        adjust_bezier(pts[8], PI/2, -disp*size)
+        pts[8] += adjust_bezier(PI/2, -disp*size)
         pts[9] = get_mid_point(pts[4], pts[2])
-        adjust_bezier(pts[9], PI/2, disp*size)
+        pts[9] += adjust_bezier(PI/2, disp*size)
         pts[10] = get_mid_point(pts[2], pts[5])
-        adjust_bezier(pts[10], -PI/3, -disp*size)
+        pts[10] += adjust_bezier(-PI/3, -disp*size)
         pts[11] = get_mid_point(pts[5], pts[0])
-        adjust_bezier(pts[11], -PI/3, disp*size)
+        pts[11] += adjust_bezier(-PI/3, disp*size)
         rotate(rot) if rot
         begin_shape
           vertex(pts[0].x, pts[0].y)
@@ -50,14 +51,12 @@ def setup_the_tiles
       end
     
       private
-      def adjust_bezier(base, theta, disp)
-        base.add(PVector.new(Math.cos(theta)*disp, Math.sin(theta)*disp))
+      def adjust_bezier(theta, disp)
+        Vec2D.new(Math.cos(theta)*disp, Math.sin(theta)*disp)
       end
     
-      def get_mid_point(a, b)
-        mid = PVector.add(a, b)
-        mid.div(2)
-        return mid
+      def get_mid_point(a, b) 
+        (a + b) / 2.0
       end
     end
   
