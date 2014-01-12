@@ -1,4 +1,5 @@
 require 'cf3'
+load_library :vecmath
 
 def setup_the_birds 
     
@@ -16,30 +17,30 @@ def setup_the_birds
                 disp = options[:disp]
                 col = options[:color]
                 pts = Array.new(16)
-                pts[0] = PVector.new(x0 - 0.25 * size, y0 - size / SQRT3)     # A
-                pts[2] = PVector.new(x0 + 0.75 * size, y0 - size / SQRT3)     # B
-                pts[4] = PVector.new(x0 + 0.25 * size, y0 + (SQRT3 * size) / 6) # C
-                pts[6] = PVector.new(x0 - 0.75 * size, y0 + (SQRT3 * size) / 6) # D
+                pts[0] = Vec2D.new(x0 - 0.25 * size, y0 - size / SQRT3)     # A
+                pts[2] = Vec2D.new(x0 + 0.75 * size, y0 - size / SQRT3)     # B
+                pts[4] = Vec2D.new(x0 + 0.25 * size, y0 + (SQRT3 * size) / 6) # C
+                pts[6] = Vec2D.new(x0 - 0.75 * size, y0 + (SQRT3 * size) / 6) # D
                 pts[1] = get_mid_point(pts[0], pts[2])#Ab
                 pts[3] = get_mid_point(pts[2], pts[4])#Bc
                 pts[5] = get_mid_point(pts[4], pts[6])#Cd
                 pts[7] = get_mid_point(pts[6], pts[0])#Da
                 pts[8] = get_mid_point(pts[0], pts[1])#Aba
-                adjust_bezier(pts[8], PI/2, -disp * size)#Aba
+                pts[8] += adjust_bezier(PI/2, -disp * size)#Aba
                 pts[9] = get_mid_point(pts[1], pts[2])
-                adjust_bezier(pts[9], PI/2, disp * size)
+                pts[9] += adjust_bezier(PI/2, disp * size)
                 pts[10] = get_mid_point(pts[2], pts[3])
-                adjust_bezier(pts[10], PI/3, disp * size)
+                pts[10] += adjust_bezier(PI/3, disp * size)
                 pts[11] = get_mid_point(pts[3], pts[4])
-                adjust_bezier(pts[11], PI/3, -disp * size)
+                pts[11] += adjust_bezier(PI/3, -disp * size)
                 pts[12] = get_mid_point(pts[4], pts[5])
-                adjust_bezier(pts[12], PI/2, disp * size)
+                pts[12] += adjust_bezier(PI/2, disp * size)
                 pts[13] = get_mid_point(pts[5], pts[6])
-                adjust_bezier(pts[13], PI/2, -disp * size)
+                pts[13] += adjust_bezier(PI/2, -disp * size)
                 pts[14] = get_mid_point(pts[6], pts[7])
-                adjust_bezier(pts[14], PI/3, -disp * size)
+                pts[14] += adjust_bezier(PI/3, -disp * size)
                 pts[15] = get_mid_point(pts[7], pts[0])
-                adjust_bezier(pts[15], PI/3, disp * size)
+                pts[15] += adjust_bezier(PI/3, disp * size)
                 rotate(rot) if rot
                 fill *col
                 begin_shape
@@ -58,14 +59,12 @@ def setup_the_birds
                 end
                 
                 private
-                def adjust_bezier(base, theta, disp)
-                    base.add(PVector.new(Math.cos(theta)*disp, Math.sin(theta)*disp))
+                def adjust_bezier(theta, disp)
+                    Vec2D.new(Math.cos(theta)*disp, Math.sin(theta)*disp)
                 end
                 
                 def get_mid_point(a, b)
-                    mid = PVector.add(a, b)
-                    mid.div(2)
-                    return mid
+                    (a + b) / 2.0
                 end
             end
             
