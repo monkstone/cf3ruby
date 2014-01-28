@@ -143,7 +143,7 @@ module Processing
 
     # Saving the context means the values plus the coordinate matrix.
     def save_context
-      @rewind_stack.push @values.dup
+      @rewind_stack << @values.dup
       @matrix_stack << @graphics.get_matrix
     end
 
