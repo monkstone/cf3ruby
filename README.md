@@ -2,7 +2,7 @@
 
 **context-free DSL for ruby-1.9 and CF3 syntax** 
 
-Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.2 and 1.0.11).
+Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.3 and 1.0.11).
 [version]:https://github.com/monkstone/ruby-processing/releases/
 ## Installation
 
