@@ -30,7 +30,7 @@ module Processing
       @graphics     = $app.g
       @width        = $app.width
       @height       = $app.height
-      @finished     = false
+           
       @rules        = {}
       @rewind_stack = []
       @matrix_stack = []
@@ -63,8 +63,7 @@ module Processing
             def #{rule_name}(options)
               merge_options(@values, options)
               pick = determine_rule(#{rule_name.inspect})
-              @finished = true if @values[:size] < @values[:stop_size]
-              unless @finished
+              unless (@values[:size] - @values[:stop_size]) < 0
                 get_ready_to_draw
                 pick[1].call(options)
               end
@@ -78,9 +77,8 @@ module Processing
     # Rule choice is random, based on the assigned probabilities.
     def determine_rule(rule_name)
       rule = @rules[rule_name]
-      chance = rand * rule[:total]
-      pick = @rules[rule_name][:procs].select {|the_proc| the_proc[0].include?(chance) }
-      return pick.flatten
+      chance = rand(0.0 .. rule[:total])
+      return @rules[rule_name][:procs].select {|the_proc| the_proc[0].include?(chance) }.flatten
     end
 
 
@@ -156,8 +154,7 @@ module Processing
 
 
     # Rewinding goes back one step.
-    def rewind
-      @finished = false
+    def rewind       
       restore_context
       save_context
     end
@@ -172,8 +169,7 @@ module Processing
                  start_x: width/2, start_y: height/2,
                  color: [180, 0.5, 0.5, 1],
                  stop_size: 1.5}
-      @values.merge!(starting_values)
-      @finished = false
+      @values.merge!(starting_values)       
       @app.reset_matrix
       @app.rect_mode CENTER
       @app.ellipse_mode CENTER

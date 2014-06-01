@@ -1,3 +1,5 @@
+v0.0.6 Some tidy up remove @finished
+
 v0.0.4 Introduce :w and :h as options to supplement size
   * start support for width and height options (:w, :h)
 

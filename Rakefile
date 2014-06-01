@@ -1,4 +1,4 @@
-require "bundler/gem_tasks"
+#require "bundler/gem_tasks"
 
 task :install => :build do
   sh "jruby -S gem install #{Dir.glob('*.gem').join(' ')} --no-ri --no-rdoc"
