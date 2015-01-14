@@ -10,7 +10,7 @@ module Processing
 
     attr_accessor :rule, :app, :width, :height
 
-    AVAILABLE_OPTIONS = [:x, :y, :w, :h, :rotation, :size, :flip, :color, :hue, :saturation, :brightness, :alpha]
+    AVAILABLE_OPTIONS = %i(x y w h rotation size flip color hue saturation brightness alpha)
     HSB_ORDER         = {hue: 0, saturation: 1, brightness: 2, alpha: 3}
     TRIANGLE_TOP      = -1 / Math.sqrt(3)
     TRIANGLE_BOTTOM   = Math.sqrt(3) / 6
@@ -87,22 +87,23 @@ module Processing
     def merge_options(old_ops, new_ops)
       return unless new_ops
       # Do size first
-      old_ops[:size] *= new_ops[:size] if new_ops[:size]
+      old_ops[:size] *= new_ops.fetch(:size, 1.0)
       new_ops.each do |key, value|
         case key
         when :size
         when :x, :y
-          old_ops[key] = value * old_ops[:size]
+          old_ops[key] = value * old_ops.fetch(:size, 1.0)
         when :rotation
-          old_ops[key] = value * RADIANS
+          old_ops[key] = value * RADIANS        
         when :hue, :saturation, :brightness, :alpha
           adjusted = old_ops[:color].dup
-          adjusted[HSB_ORDER[key]] *= value
+          adjusted[HSB_ORDER[key]] *= value unless key == :hue
+          adjusted[HSB_ORDER[key]] += value if key == :hue
           old_ops[:color] = adjusted
         when :flip
           old_ops[key] = !old_ops[key]
         when :w, :h
-          old_ops[key] = value * old_ops[:size]
+          old_ops[key] = value * old_ops.fetch(:size, 1.0)
         when :color
           old_ops[key] = value
         else # Used a key that we don't know about or trying to set
@@ -163,27 +164,36 @@ module Processing
     # Render the is method that kicks it all off, initializing the options
     # and calling the first rule.
     def render(rule_name, starting_values={})
-      @values = {x: 0, y: 0,
-                 rotation: 0, flip: false,
-                 size: 20, w: nil, h: nil,
-                 start_x: width/2, start_y: height/2,
-                 color: [180, 0.5, 0.5, 1],
-                 stop_size: 1.5}
+      @values = defaults
       @values.merge!(starting_values)       
       @app.reset_matrix
       @app.rect_mode CENTER
       @app.ellipse_mode CENTER
       @app.no_stroke
       @app.color_mode HSB, 360, 1.0, 1.0, 1.0    # match cfdg
-      @app.translate @values[:start_x], @values[:start_y]
+      @app.translate @values.fetch(:start_x, 0), @values.fetch(:start_y, 0)
       self.send(rule_name, {})
+    end
+    
+    def defaults
+      {
+        x: 0, 
+        y: 0,
+        rotation: 0,
+        flip: false,
+        size: 20,
+        start_x: width / 2, 
+        start_y: height / 2,
+        color: [180, 0.5, 0.5, 1],
+        stop_size: 1.5
+      }
     end
 
 
     # Before actually drawing the next step, we need to move to the appropriate
     # location.
     def get_ready_to_draw
-      @app.translate(@values[:x], @values[:y])
+      @app.translate(@values.fetch(:x, 0), @values.fetch(:y, 0))
       sign = (@values[:flip] ? -1 : 1)
       @app.rotate(sign * @values[:rotation])
     end
@@ -192,16 +202,16 @@ module Processing
     # Compute the rendering parameters for drawing a shape.
     def get_shape_values(some_options)
       old_ops = @values.dup
-      merge_options(old_ops, some_options) if some_options
+      merge_options(old_ops, some_options) unless some_options.empty? 
       @app.fill *old_ops[:color]
-      return old_ops[:size], old_ops
+      return old_ops
     end
 
 
     # Square, circle, and ellipse are the primitive drawing
     # methods, but hopefully triangles will be added soon.
     def square(some_options={})
-      size, options = *get_shape_values(some_options)
+      options = get_shape_values(some_options)
       width = options[:w] || options[:size]
       height = options[:h] || options[:size]
       rot = options[:rotation] 
@@ -212,12 +222,12 @@ module Processing
 
 
     def circle(some_options={})
-      size, options = *get_shape_values(some_options)
+      options = get_shape_values(some_options)
       @app.ellipse(0, 0, size, size)
     end
 
     def triangle(some_options={})
-      size, options = *get_shape_values(some_options)
+      options = get_shape_values(some_options)
       rot = options[:rotation] 
       @app.rotate(rot) if rot
       @app.triangle(0, TRIANGLE_TOP * size, 0.5 * size, TRIANGLE_BOTTOM * size, -0.5 * size, TRIANGLE_BOTTOM * size)
@@ -226,7 +236,7 @@ module Processing
 
 
     def ellipse(some_options={})
-      size, options = *get_shape_values(some_options)
+      options = get_shape_values(some_options)
       width = options[:w] || options[:size]
       height = options[:h] || options[:size]
       rot = some_options[:rotation] 
