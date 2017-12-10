@@ -1,8 +1,8 @@
 # cf3ruby
 
-**context-free DSL for ruby-2.4 and CF3 syntax**
+*This is forked version of [monkstone/cf3ruby](https://github.com/monkstone/cf3ruby). Updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
 
-*This is forked version of [https://github.com/monkstone/cf3ruby](https://github.com/monkstone/cf3ruby). Updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
+**context-free DSL for ruby-2.4 and CF3 syntax**
 
 Very much derived from [context-free.rb]() by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.3 and 1.0.11).
 [version]:https://github.com/monkstone/ruby-processing/releases/
@@ -50,7 +50,7 @@ As for running ruby-processing,
 k5 --run city.rb # providing you installed both ruby-processing (JRubyArt) and cf3ruby using jruby
 
 ```
-You should read the [JRubyArt documentation][https://github.com/ruby-processing/JRubyArt/blob/master/README.md] on using rubygems.
+You should read the [JRubyArt documentation](https://github.com/ruby-processing/JRubyArt/blob/master/README.md) on using rubygems.
 
 ## Contributing
 
