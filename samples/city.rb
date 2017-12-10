@@ -36,8 +36,11 @@ def setup_the_city
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   smooth
   setup_the_city
   @background = color 255, 255, 255

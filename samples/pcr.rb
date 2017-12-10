@@ -67,8 +67,11 @@ def setup_the_gel
   end
 end
 
-def setup
+def settings
   size 500, 300
+end
+
+def setup
   background 0, 0, 180
   smooth
   setup_the_gel

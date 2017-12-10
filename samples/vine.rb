@@ -33,8 +33,11 @@ def setup_the_vine
   end
 end
 
-def setup
+def settings
   size 700, 700
+end
+
+def setup
   setup_the_vine
   no_stroke
 end

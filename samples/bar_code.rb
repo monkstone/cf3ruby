@@ -63,8 +63,11 @@ def setup_the_barcode
     end
   end
 
-def setup
+def settings
   size 350, 200
+end
+
+def setup
   text_font(create_font("Dialog.plain", 24), 24)
   background 255, 255, 0
   draw_text

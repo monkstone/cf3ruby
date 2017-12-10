@@ -24,8 +24,11 @@ def setup_the_dragon
   end
 end
 
-def setup
+def settings
   size 800, 500
+end
+
+def setup
   setup_the_dragon
   smooth
   draw_it

@@ -1,5 +1,4 @@
 require 'cf3'
-load_library :vecmath
 
 GOLD = [33, 0.967, 0.592, 1]
 BLACK = [0, 0.909, 0.129, 1]
@@ -71,8 +70,11 @@ def setup_the_tiles
   end
 end
 
-def setup
+def settings
   size 1024, 720
+end
+
+def setup
   background 255
   smooth
   setup_the_tiles

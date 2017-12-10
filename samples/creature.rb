@@ -34,8 +34,11 @@ def setup_the_creature
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   setup_the_creature
   no_stroke
 end
