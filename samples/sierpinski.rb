@@ -22,8 +22,11 @@ def setup_the_triangle
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   setup_the_triangle
   no_stroke
   @hide = false
