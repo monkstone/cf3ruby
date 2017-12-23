@@ -26,7 +26,7 @@ Clone this repository,
 
 ```bash
 cd cf3ruby
-bundle install          # using regular installed bundler may need to set GEM_PATH
+# bundle install          # using regular installed bundler may need to set GEM_PATH
 jruby -S bundle install # if you installed bundler with jruby
 ```
 
