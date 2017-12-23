@@ -32,11 +32,11 @@ jruby -S bundle install # if you installed bundler with jruby
 
 ***gem install from rubygems***
 
-*Note: This method is unavailable for this forked version. sorry.*
-
 ```bash
-gem install cf3            # regular install may need to set GEM_PATH env variable
-jruby -S gem install cf3   # jruby install 
+# Note: This method is unavailable for this forked version. sorry.
+
+# gem install cf3            # regular install may need to set GEM_PATH env variable
+# jruby -S gem install cf3   # jruby install 
 ```
 it couldn't be easier could it?
 
