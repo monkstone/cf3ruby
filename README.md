@@ -50,7 +50,7 @@ jruby -S cf3samples  # else if installed with jruby this should also work
 
 As for running ruby-processing,
 ```bash
-k5 --run city.rb # providing you installed both ruby-processing (JRubyArt) and cf3ruby using jruby
+k9 --run city.rb # providing you installed both ruby-processing (JRubyArt) and cf3ruby using jruby
 
 ```
 You should read the [JRubyArt documentation](https://github.com/ruby-processing/JRubyArt/blob/master/README.md) on using rubygems.
