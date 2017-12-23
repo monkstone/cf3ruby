@@ -28,8 +28,11 @@ def setup_the_fern
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   setup_the_fern
   no_stroke
 end

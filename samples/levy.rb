@@ -17,9 +17,11 @@ def setup_the_levy
   end
 end
 
+def settings
+  size 400, 400
+end
 
 def setup
-  size 400, 400
   setup_the_levy
   draw_it
   save_frame("levy.png")
