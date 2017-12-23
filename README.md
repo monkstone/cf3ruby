@@ -17,7 +17,7 @@ Clone this repository,
 ```bash
 cd cf3ruby 
 jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
-jruby -S gem install cf3-0.0.5.gem # may need sudo access
+jruby -S gem install cf3-0.0.7.gem # may need sudo access
 ```
 
 ***local bundle install***
