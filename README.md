@@ -15,9 +15,9 @@ To use this library you need install jruby (preferably jruby-9.1+), you will als
 Clone this repository,
 
 ```bash
-cd cf3ruby 
+cd cf3ruby
 jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
-jruby -S gem install cf3-0.0.7.gem # may need sudo access
+jruby -S gem install cf3-1.0.0.gem # may need sudo access
 ```
 
 ***local bundle install***
@@ -36,7 +36,7 @@ jruby -S bundle install # if you installed bundler with jruby
 # Note: This method is unavailable for this forked version. sorry.
 
 # gem install cf3            # regular install may need to set GEM_PATH env variable
-# jruby -S gem install cf3   # jruby install 
+# jruby -S gem install cf3   # jruby install
 ```
 it couldn't be easier could it?
 
@@ -60,4 +60,3 @@ You should read the [JRubyArt documentation](https://github.com/ruby-processing/
 See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
-
