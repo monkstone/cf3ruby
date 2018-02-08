@@ -31,6 +31,7 @@ def settings
 end
 
 def setup
+  sketch_title 'Dark Star'
   setup_the_sun
   no_stroke
   color_mode HSB, 1.0
@@ -46,5 +47,3 @@ def draw_it
   @sun.render :start, size: height/7,  stop_size: 0.8,
   start_x: width/2, start_y: height/2
 end
-
-
