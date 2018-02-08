@@ -1,37 +1,42 @@
 # cf3ruby
 
-**context-free DSL for ruby-1.9 and CF3 syntax** 
+*This is forked version of [monkstone/cf3ruby](https://github.com/monkstone/cf3ruby). Updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
 
-Very much derived from [context-free.rb][] by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.3 and 1.0.11).
-[version]:https://github.com/monkstone/ruby-processing/releases/
+**context-free DSL for ruby-2.4 and CF3 syntax**
+
+Very much derived from [context-free.rb](https://github.com/jashkenas/context_free) by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.3 and 1.0.11).
+
 ## Installation
 
-To use this library you need install jruby (preferably jruby-1.7.9+), you will also need [ruby-processing][] to be installed (minimum version 1.0.11, preferred version 2.6.0). There are three ways you can install this library:-
+To use this library you need install jruby (preferably jruby-9.1+), you will also need [ruby-processing/JRubyArt](https://github.com/ruby-processing/JRubyArt) to be installed (preferred version 1.4.4). There are three ways you can install this library:-
 
 ***rake test and gem install***
 
-Either clone this repository, or download a [snapshot][].
+Clone this repository,
 
 ```bash
 cd cf3ruby 
 jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
-jruby -S gem install cf3-0.0.5.gem # may need sudo access
+jruby -S gem install cf3-0.0.7.gem # may need sudo access
 ```
 
 ***local bundle install***
 
-Either clone this repository, or download a [snapshot].
+Clone this repository,
 
 ```bash
-cd cf3
-bundle install          # using regular installed bundler may need to set GEM_PATH
+cd cf3ruby
+# bundle install          # using regular installed bundler may need to set GEM_PATH
 jruby -S bundle install # if you installed bundler with jruby
 ```
 
 ***gem install from rubygems***
+
 ```bash
-gem install cf3            # regular install may need to set GEM_PATH env variable
-jruby -S gem install cf3   # jruby install 
+# Note: This method is unavailable for this forked version. sorry.
+
+# gem install cf3            # regular install may need to set GEM_PATH env variable
+# jruby -S gem install cf3   # jruby install 
 ```
 it couldn't be easier could it?
 
@@ -43,21 +48,16 @@ cf3samples           # should work
 jruby -S cf3samples  # else if installed with jruby this should also work
 ```
 
-As for running ruby-processing, ( _it requires the external jruby flag prior to ruby-processing-2.1.2_ )
+As for running ruby-processing,
 ```bash
-rp5 run city.rb # providing you installed both ruby-processing and cf3ruby using jruby
+k9 --run city.rb # providing you installed both ruby-processing (JRubyArt) and cf3ruby using jruby
 
 ```
-You should read the [ruby-processing_documentation][] on using rubygems.
+You should read the [JRubyArt documentation](https://github.com/ruby-processing/JRubyArt/blob/master/README.md) on using rubygems.
 
 ## Contributing
 
-[Contributing][]
-[contributing]:CONTRIBUTING.md
-[ruby-processing]:https://github.com/jashkenas/ruby-processing/
-[ruby-processing_documentation]:https://github.com/jashkenas/ruby-processing/wiki/Using-Rubygems/
-[snapshot]:https://github.com/monkstone/cf3ruby/releases
-[context-free.rb]:https://github.com/jashkenas/context_free
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ![Y](http://3.bp.blogspot.com/-KNBKD7lArMA/UNBayboXQFI/AAAAAAAAD7A/YAgZCewTOxQ/s400/y.png)
 

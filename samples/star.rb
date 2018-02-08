@@ -5,8 +5,11 @@ require 'cf3'
 # from primitive terminals (renders on mouse clicked)
 ###
 
+def settings
+  size 400, 200
+end
+
 def setup
-  size 400, 200 
   @stars = ContextFree.define do
     
     shape :stars do

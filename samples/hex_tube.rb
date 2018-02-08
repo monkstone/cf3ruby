@@ -28,13 +28,16 @@ def setup_the_hextube
   
     shape :hexa do |i = nil, j = 0.5|
       hexagon size: 1, brightness: 1.0 
-      hexa size: 0.9, rotation: 5 *j
+      hexa size: 0.9, rotation: (5 * j)
     end
   end
 end
 
-def setup
+def settings
   size 800, 800
+end
+
+def setup
   background 0 
   smooth
   setup_the_hextube

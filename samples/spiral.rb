@@ -32,9 +32,12 @@ def setup_the_spiral
     
   end
 end
+
+def settings
+  size 600, 600
+end
  
 def setup
-  size 600, 600
   setup_the_spiral
   no_stroke
   color_mode HSB, 1.0

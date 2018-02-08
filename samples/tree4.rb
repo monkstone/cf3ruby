@@ -40,8 +40,11 @@ def setup_the_tree
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   srand 5  # comment this to get variable tree shape
   setup_the_tree
 end

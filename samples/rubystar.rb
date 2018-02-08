@@ -66,8 +66,11 @@ def setup_the_sunstar
   end
 end
 
-def setup
+def settings
   size 800, 800
+end
+
+def setup
   background 150, 20, 0, 1
   setup_the_sunstar
   draw_it

@@ -26,8 +26,11 @@ def setup_the_sun
   end
 end
 
-def setup
+def settings
   size 600, 600
+end
+
+def setup
   setup_the_sun
   no_stroke
   color_mode HSB, 1.0

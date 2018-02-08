@@ -26,6 +26,7 @@ module Processing
 
     # Initialize a bare ContextFree object with empty recursion stacks.
     def initialize
+      $app = Processing::app
       @app          = $app
       @graphics     = $app.g
       @width        = $app.width

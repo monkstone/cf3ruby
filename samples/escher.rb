@@ -1,5 +1,4 @@
 require 'cf3'
-load_library :vecmath
 
 def setup_the_birds 
     
@@ -106,9 +105,12 @@ def setup_the_birds
             
         end
     end
+
+    def settings
+        size 1000, 800
+    end
     
     def setup
-        size 1000, 800
         setup_the_birds
         draw_it
     end

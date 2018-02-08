@@ -23,13 +23,16 @@ def setup_the_triangle
     ########
   end
 end
+
+def settings
+  size 1024, 1024
+  smooth 8
+end
                 
 def setup
-  size 1024, 1024
   setup_the_triangle
   no_stroke
   color_mode RGB, 1
-  smooth 8
   draw_it
   save_frame("y.png")
 end

@@ -1,7 +1,10 @@
 require_relative '../lib/cf3.rb'
 
-def setup
+def settings
   size 200, 200 
+end
+
+def setup
   @triangle = ContextFree.define do
     shape :tri do
       circle      

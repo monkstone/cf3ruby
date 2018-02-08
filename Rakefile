@@ -9,7 +9,7 @@ task :build do
 end
 
 task :test do
-  sh "jruby -S rp5 run test/test_cf3.rb"
+  sh "jruby -S k9 --run test/test_cf3.rb"
 end
 
 task :default => [:install]

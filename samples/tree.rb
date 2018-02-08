@@ -55,9 +55,11 @@ def setup_the_trees
   end  
 end
 
+def settings
+  size 800, 800
+end
 
 def setup
-  size 800, 800
   @hide = false
   setup_the_trees
   no_stroke

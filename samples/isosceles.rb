@@ -20,8 +20,11 @@ def setup_the_spiral
   end
 end
 
-def setup
+def settings
   size 800, 500
+end
+
+def setup
   setup_the_spiral
   draw_it
 end
