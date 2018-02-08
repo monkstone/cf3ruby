@@ -10,8 +10,9 @@ def settings
 end
 
 def setup
+  sketch_title 'Star Shapes'
   @stars = ContextFree.define do
-    
+
     shape :stars do
       split do
         sqstar size: 0.8, x: -1
@@ -19,21 +20,21 @@ def setup
         trstar x: 1
       end
     end
-    
+
     shape :sqstar do
       square
       square rotation: 45
     end
-    
+
     shape :trstar do
       triangle
       triangle rotation: 180
     end
-  end 
+  end
 end
 
 def draw_it
-  background 0.2 
+  background 0.2
   @stars.render :stars, size: height/2, color: [220, 1, 1, 1]
 end
 

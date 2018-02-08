@@ -9,25 +9,25 @@ attr_reader :panel, :hide
 
 def setup_the_trees
   control_panel do |panel|
-    panel.look_feel "Metal"
+    panel.look_feel 'Nimbus'
     panel.slider :srand, (0..100), 50
     @panel = panel
   end
-  
+
   @tree = ContextFree.define do
-    
+
     shape :seed do
       square
       leaf y: 0 if size < 4.5 && rand < 0.018
       flower y: 0 if size < 2.0 && rand < 0.02
       seed y: -1, size: 0.986, rotation: 3, brightness: 0.989
     end
-    
+
     shape :seed, 0.1 do
       square
       seed flip: true
     end
-    
+
     shape :seed, 0.04 do
       square
       split do
@@ -38,21 +38,21 @@ def setup_the_trees
         seed size: 0.8, rotation: rand(50)
       end
     end
-    
+
     shape :leaf do
       the_size = rand(25)
       the_x = [1, 0, 0, 0][rand(4)]
       circle size: the_size, hue: 54, saturation: 1.25, brightness: 0.9, x: the_x
     end
-    
+
     shape :flower do
-      split saturation: 0, brightness: rand(1.3)+4.7, w: rand(15)+10, h: rand(2)+2 do
-	(0 .. 135).step(45) do |rot|      
+      split saturation: 0, brightness: rand(1.3..6.0), w: rand(15..25), h: rand(2..4) do
+        (0..135).step(45) do |rot|
           oval rotation: rot
-	end
+        end
       end
-    end    
-  end  
+    end
+  end
 end
 
 def settings
@@ -60,6 +60,7 @@ def settings
 end
 
 def setup
+  sketch_title 'Tree'
   @hide = false
   setup_the_trees
   no_stroke
@@ -76,13 +77,13 @@ end
 def draw_it
   Kernel::srand(@srand) if @srand
   background(color(rand(0 .. 255), rand(0 .. 255), rand(0 .. 255), 255))
-  @tree.render :seed, start_x: width/2, start_y: height+20, 
+  @tree.render :seed, start_x: width/2, start_y: height+20,
                       size: height/60, color: [252, 0.15, 0.8, 1]
 end
 
 def mouse_clicked
   @hide = false
-  panel.set_visible(true)  
+  panel.set_visible(true)
   draw_it
   @hide = true
 end

@@ -6,11 +6,11 @@ INV_SQRT = 1 / Math.sqrt(2)
 
 def setup_the_dragon
   @dragon = ContextFree.define do
-    
+
     shape :start do
       dragon alpha: 1
     end
-    
+
     shape :dragon do
       square hue: 0, brightness: 0, saturation: 1, alpha: 0.02
       split do
@@ -20,7 +20,7 @@ def setup_the_dragon
         rewind
       end
     end
-    
+
   end
 end
 
@@ -29,6 +29,7 @@ def settings
 end
 
 def setup
+  sketch_title 'Heighway Dragon'
   setup_the_dragon
   smooth
   draw_it

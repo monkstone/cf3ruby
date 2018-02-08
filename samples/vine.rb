@@ -3,11 +3,11 @@
 require 'cf3'
 
 def setup_the_vine
-  
+
   @vine = ContextFree.define do
-    
+
     shrink = 0.961
-    
+
     shape :root do
       split do
         shoot y: 1
@@ -15,12 +15,12 @@ def setup_the_vine
         shoot rotation: 180
       end
     end
-    
+
     shape :shoot do
       square
       shoot y: 0.98, rotation: 5, size: shrink + rand * 0.05, brightness: 0.990
     end
-    
+
     shape :shoot, 0.02 do
       square
       split do
@@ -29,7 +29,7 @@ def setup_the_vine
         shoot rotation: -90
       end
     end
-    
+
   end
 end
 
@@ -38,6 +38,7 @@ def settings
 end
 
 def setup
+  sketch_title 'Vine'
   setup_the_vine
   no_stroke
 end

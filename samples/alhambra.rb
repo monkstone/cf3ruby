@@ -8,34 +8,36 @@ RED = [17, 0.983, 0.231, 1]
 COLORS = [GOLD, BLACK, GREEN, BLUE, RED]
 
 def setup_the_tiles
-  @tiles= ContextFree.define do
-    ############ Begin defining custom terminal, an wavy_triangle triangle        
-    class << self    
+  @tiles = ContextFree.define do
+    ############ Begin defining custom terminal, an wavy_triangle triangle
+    class << self
+      SQRT3 = Math.sqrt(3)
       define_method(:wavy_triangle) do |some_options| # wavy_triangle triangle
-        size, options = *self.get_shape_values(some_options)
+        options = get_shape_values(some_options)
+        size = options[:size]
         rot = options[:rotation]
         disp = 0.32          # could introduce a rule option?
         x0 = options[:x]
         y0 = options[:y]
         pts = Array.new(12)
-        pts[0] = Vec2D.new(x0, y0 - size/Math.sqrt(3))                    # A
-        pts[1] = Vec2D.new(x0 - 0.5 * size, y0 + (Math.sqrt(3)*size) / 6) # B
-        pts[2] = Vec2D.new(x0 + 0.5 * size, y0 + (Math.sqrt(3)*size) / 6) # C
-        pts[3] = get_mid_point(pts[0], pts[1])                            # Ab
-        pts[4] = get_mid_point(pts[1], pts[2])                            # Bc
-        pts[5] = get_mid_point(pts[0], pts[2])                            # Ca
-        pts[6] = get_mid_point(pts[0], pts[3])                            # Aba
-        pts[6] += adjust_bezier(PI/3, disp*size)                          # Aba
-        pts[7] = get_mid_point(pts[3], pts[1])                            # Abb
-        pts[7] += adjust_bezier(PI/3, -disp*size)                         # Abb
+        pts[0] = Vec2D.new(x0, y0 - size / SQRT3)                    # A
+        pts[1] = Vec2D.new(x0 - 0.5 * size, y0 + SQRT3 * size / 6)   # B
+        pts[2] = Vec2D.new(x0 + 0.5 * size, y0 + SQRT3 * size / 6)   # C
+        pts[3] = get_mid_point(pts[0], pts[1])                       # Ab
+        pts[4] = get_mid_point(pts[1], pts[2])                       # Bc
+        pts[5] = get_mid_point(pts[0], pts[2])                       # Ca
+        pts[6] = get_mid_point(pts[0], pts[3])                       # Aba
+        pts[6] += adjust_bezier(PI/3, disp * size)                   # Aba
+        pts[7] = get_mid_point(pts[3], pts[1])                       # Abb
+        pts[7] += adjust_bezier(PI/3, -disp * size)                  # Abb
         pts[8] = get_mid_point(pts[1], pts[4])
-        pts[8] += adjust_bezier(PI/2, -disp*size)
+        pts[8] += adjust_bezier(PI/2, -disp * size)
         pts[9] = get_mid_point(pts[4], pts[2])
-        pts[9] += adjust_bezier(PI/2, disp*size)
+        pts[9] += adjust_bezier(PI/2, disp * size)
         pts[10] = get_mid_point(pts[2], pts[5])
-        pts[10] += adjust_bezier(-PI/3, -disp*size)
+        pts[10] += adjust_bezier(-PI/3, -disp * size)
         pts[11] = get_mid_point(pts[5], pts[0])
-        pts[11] += adjust_bezier(-PI/3, disp*size)
+        pts[11] += adjust_bezier(-PI/3, disp * size)
         rotate(rot) if rot
         begin_shape
           vertex(pts[0].x, pts[0].y)
@@ -45,20 +47,20 @@ def setup_the_tiles
           bezier_vertex(pts[4].x, pts[4].y, pts[9].x, pts[9].y, pts[2].x, pts[2].y)
           bezier_vertex(pts[2].x, pts[2].y, pts[10].x, pts[10].y, pts[5].x, pts[5].y)
           bezier_vertex(pts[5].x, pts[5].y, pts[11].x, pts[11].y, pts[0].x, pts[0].y)
-        end_shape(CLOSE)        
+        end_shape(CLOSE)
         rotate(-rot) if rot
       end
-    
+
       private
       def adjust_bezier(theta, disp)
-        Vec2D.new(Math.cos(theta)*disp, Math.sin(theta)*disp)
+        Vec2D.new(Math.cos(theta) * disp, Math.sin(theta) * disp)
       end
-    
-      def get_mid_point(a, b) 
+
+      def get_mid_point(a, b)
         (a + b) / 2.0
       end
     end
-  
+
     ########### End definition of custom terminal 'wavy_triangle' shape
     shape :tiles do
       20.times do |i|
@@ -75,8 +77,8 @@ def settings
 end
 
 def setup
+  sketch_title 'Alhambra Tiling'
   background 255
-  smooth
   setup_the_tiles
   draw_it
 end

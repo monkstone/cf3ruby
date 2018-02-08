@@ -22,6 +22,7 @@ def settings
 end
 
 def setup
+  sketch_title 'Levy Fractal'
   setup_the_levy
   draw_it
   save_frame("levy.png")

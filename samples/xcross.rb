@@ -9,9 +9,9 @@ def settings
   size 400, 200
 end
 
-def setup 
-  @stars = ContextFree.define do
-    
+def setup
+  sketch_title 'X-Cross'
+  @stars = ContextFree.define do    
     shape :stars do
       split do
         cross size: 0.5, x: -2
@@ -19,21 +19,21 @@ def setup
         plus size: 0.5, x: 2
       end
     end
-    
+
     shape :cross do
       square w: 1, h: 3, rotation: -45
       square w: 1, h: 3, rotation: 45
     end
-    
+
     shape :plus do
       square w: 1, h: 3
       square w: 1, h: 3, rotation: 90
     end
-  end 
+  end
 end
 
 def draw_it
-  background 0.2 
+  background 0.2
   @stars.render :stars, size: height/2, color: [220, 1, 1, 1]
 end
 

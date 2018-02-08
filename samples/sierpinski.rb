@@ -1,24 +1,24 @@
-require 'cf3' 
+require 'cf3'
 
 load_library 'control_panel'
 
 attr_accessor :resolution, :panel, :hide
 
-def setup_the_triangle  
+def setup_the_triangle
   @triangle = ContextFree.define do
     shape :tri do
-      triangle size: 0.5, rotation: 180
+      triangle size: 0.5
       split do
-        tri size: 0.5, y: -0.578, x: 0, 
+        tri size: 0.5, y: -0.578, x: 0,
         hue: 288, saturation: 0.2, brightness: 0.8
         rewind
-        tri size: 0.5, y: 0.289, x: -0.5, hue: 72, 
+        tri size: 0.5, y: 0.289, x: -0.5, hue: 72,
         saturation: 0.2, brightness: 0.8
         rewind
-        tri size: 0.5, y: 0.289, x: 0.5, hue: 72, 
+        tri size: 0.5, y: 0.289, x: 0.5, hue: 72,
         saturation: 0.2, brightness: 0.8
       end
-    end    
+    end
   end
 end
 
@@ -27,19 +27,20 @@ def settings
 end
 
 def setup
+  sketch_title 'Sierpinski'
   setup_the_triangle
   no_stroke
   @hide = false
   @resolution = 5
   control_panel do |p|
-    p.look_feel "Metal"	# optionall set look and feel  
+    p.look_feel 'Nimbus'	# optional set look and feel  
     p.slider :resolution, (2..50), 5
     @panel = p
   end
 end
 
 def draw
-  unless hide	
+  unless hide
     panel.set_visible(true) # display panel after sketch frame
     @hide = true
   end
@@ -48,5 +49,5 @@ def draw
 end
 
 def mouse_clicked
-  @hide = false	
+  @hide = false
 end
