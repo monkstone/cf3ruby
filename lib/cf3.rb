@@ -26,12 +26,11 @@ module Processing
 
     # Initialize a bare ContextFree object with empty recursion stacks.
     def initialize
-      $app = Processing::app
-      @app          = $app
-      @graphics     = $app.g
-      @width        = $app.width
-      @height       = $app.height
-           
+      @app = Processing::app
+      @graphics     = @app.g
+      @width        = @app.width
+      @height       = @app.height
+
       @rules        = {}
       @rewind_stack = []
       @matrix_stack = []
@@ -95,7 +94,7 @@ module Processing
         when :x, :y
           old_ops[key] = value * old_ops.fetch(:size, 1.0)
         when :rotation
-          old_ops[key] = value * RADIANS        
+          old_ops[key] = value * RADIANS
         when :hue, :saturation, :brightness, :alpha
           adjusted = old_ops[:color].dup
           adjusted[HSB_ORDER[key]] *= value unless key == :hue
@@ -156,7 +155,7 @@ module Processing
 
 
     # Rewinding goes back one step.
-    def rewind       
+    def rewind
       restore_context
       save_context
     end
@@ -166,7 +165,7 @@ module Processing
     # and calling the first rule.
     def render(rule_name, starting_values={})
       @values = defaults
-      @values.merge!(starting_values)       
+      @values.merge!(starting_values)
       @app.reset_matrix
       @app.rect_mode CENTER
       @app.ellipse_mode CENTER
@@ -175,15 +174,15 @@ module Processing
       @app.translate @values.fetch(:start_x, 0), @values.fetch(:start_y, 0)
       self.send(rule_name, {})
     end
-    
+
     def defaults
       {
-        x: 0, 
+        x: 0,
         y: 0,
         rotation: 0,
         flip: false,
         size: 20,
-        start_x: width / 2, 
+        start_x: width / 2,
         start_y: height / 2,
         color: [180, 0.5, 0.5, 1],
         stop_size: 1.5
@@ -203,7 +202,7 @@ module Processing
     # Compute the rendering parameters for drawing a shape.
     def get_shape_values(some_options)
       old_ops = @values.dup
-      merge_options(old_ops, some_options) unless some_options.empty? 
+      merge_options(old_ops, some_options) unless some_options.empty?
       @app.fill *old_ops[:color]
       return old_ops
     end
@@ -215,10 +214,10 @@ module Processing
       options = get_shape_values(some_options)
       width = options[:w] || options[:size]
       height = options[:h] || options[:size]
-      rot = options[:rotation] 
+      rot = options[:rotation]
       @app.rotate(rot) if rot
       @app.rect(0, 0, width, height)
-      @app.rotate(-rot) if rot  
+      @app.rotate(-rot) if rot
     end
 
 
@@ -229,7 +228,7 @@ module Processing
 
     def triangle(some_options={})
       options = get_shape_values(some_options)
-      rot = options[:rotation] 
+      rot = options[:rotation]
       @app.rotate(rot) if rot
       @app.triangle(0, TRIANGLE_TOP * size, 0.5 * size, TRIANGLE_BOTTOM * size, -0.5 * size, TRIANGLE_BOTTOM * size)
       @app.rotate(-rot) if rot
@@ -240,7 +239,7 @@ module Processing
       options = get_shape_values(some_options)
       width = options[:w] || options[:size]
       height = options[:h] || options[:size]
-      rot = some_options[:rotation] 
+      rot = some_options[:rotation]
       @app.rotate(rot) if rot
       @app.oval(options[:x] || 0, options[:y] || 0, width, height)
       @app.rotate(-rot) if rot
