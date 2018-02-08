@@ -1,10 +1,10 @@
 # cf3ruby
 
-*This is forked version of [monkstone/cf3ruby](https://github.com/monkstone/cf3ruby). Updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
+Now updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
 
 **context-free DSL for ruby-2.4 and CF3 syntax**
 
-Very much derived from [context-free.rb](https://github.com/jashkenas/context_free) by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 1.9 / 2.0 syntax. Tested as working with the current and much earlier rubygems releases of ruby-processing (2.4.3 and 1.0.11).
+Very much derived from [context-free.rb](https://github.com/jashkenas/context_free) by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 2.3 syntax. NB this version will not work with original ruby-processing.
 
 ## Installation
 
@@ -33,7 +33,7 @@ jruby -S bundle install # if you installed bundler with jruby
 ***gem install from rubygems***
 
 ```bash
-# Note: This method is unavailable for this forked version. sorry.
+# When rubygems is updatd for this release.
 
 # gem install cf3            # regular install may need to set GEM_PATH env variable
 # jruby -S gem install cf3   # jruby install
