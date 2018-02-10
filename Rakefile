@@ -12,4 +12,8 @@ task :test do
   sh "jruby -S k9 --run test/test_cf3.rb"
 end
 
+task :clean do
+  sh "rm *.gem"
+end 
+
 task :default => [:install]

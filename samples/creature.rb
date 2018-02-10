@@ -4,7 +4,7 @@ require 'cf3'
 
 def setup_the_creature
   @creature = ContextFree.define do
-    
+
     shape :start do
       rot = 0
       split do
@@ -16,21 +16,21 @@ def setup_the_creature
         legs rotation: 360
       end
     end
-    
+
     shape :legs do
       circle hue:  54, saturation: 0.5, brightness: 1.0
       legs y: 0.1, size: 0.96
     end
-    
+
     shape :legs, 0.01 do
       circle
       split do
-        legs rotation: 3 
+        legs rotation: 3
         rewind
         legs rotation: -3
       end
     end
-    
+
   end
 end
 
@@ -39,6 +39,7 @@ def settings
 end
 
 def setup
+  sketh_title 'Creature'
   setup_the_creature
   no_stroke
 end
