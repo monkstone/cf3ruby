@@ -7,10 +7,10 @@
 home = ENV["HOME"]
 local = home + '/cf3work'
 file = __FILE__
-require "pathname" 
+require "pathname"
 require "fileutils"
 file = Pathname.new(file).realpath
 
 sample_dir = File.expand_path(File.dirname(file) + "/../samples")
-FileUtils.mkdir local unless Dir.exists? local
+FileUtils.mkdir local unless Dir.exist? local
 FileUtils.cp_r sample_dir, local
