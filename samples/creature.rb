@@ -39,7 +39,7 @@ def settings
 end
 
 def setup
-  sketh_title 'Creature'
+  sketch_title 'Creature'
   setup_the_creature
   no_stroke
 end
