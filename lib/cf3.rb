@@ -1,11 +1,9 @@
 module Processing
-
   # A Context-Free library for JRubyArt, inspired by and
   # based on context_free.rb by Jeremy Ashkenas. That in turn
   # was inspired by contextfreeart.org
   class ContextFree
     include Processing::Proxy
-
     attr_accessor :rule, :app, :width, :height
 
     AVAILABLE_OPTIONS = %i[
@@ -86,7 +84,7 @@ module Processing
       old_ops[:size] *= new_ops.fetch(:size, 1.0)
       new_ops.each do |key, value|
         case key
-        when :size
+        # when :size
         when :x, :y
           old_ops[key] = value * old_ops.fetch(:size, 1.0)
         when :rotation
@@ -107,6 +105,7 @@ module Processing
         end
       end
     end
+
     # Using an unknown key let's you set arbitrary values,
     # to keep track of for your own ends.
     def merge_unknown_key(key, value, old_ops)
@@ -121,14 +120,16 @@ module Processing
         old_ops[key_sym] = value
       end
     end
+
     # Doing a 'split' saves the context, and proceeds from there,
     # allowing you to rewind to where you split from at any moment.
-    def split(options = nil, &block)
+    def split(options = nil)
       save_context
       merge_options(@values, options) if options
       yield
       restore_context
     end
+
     # Saving the context means the values plus the coordinate matrix.
     def save_context
       @rewind_stack.push @values.dup
@@ -140,6 +141,7 @@ module Processing
       @values = @rewind_stack.pop
       @graphics.set_matrix @matrix_stack.pop
     end
+
     # Rewinding goes back one step.
     def rewind
       restore_context
@@ -187,7 +189,7 @@ module Processing
       old_ops = @values.dup
       merge_options(old_ops, some_options) unless some_options.empty?
       @app.fill(*old_ops[:color])
-      return old_ops
+      old_ops
     end
 
     # Square, circle, ellipse and triangles are the primitive shapes
