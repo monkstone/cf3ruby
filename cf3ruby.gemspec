@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jeremy Ashkenas', 'Martin Prout, Funatsufumiya']
   spec.email         = ['mamba2928@yahoo.co.uk']
   spec.description   = <<-EOF
-    A library for ruby-processing, that allows the writing of context free
+    A library for JRubyArt, that allows the writing of context free
     sketches (like context free art) in a ruby DSL. It is a bit of a toy
     compared to the c++ version.  However you can get quite a bit of
     satisfaction creating an interesting graphic, and you can't always
