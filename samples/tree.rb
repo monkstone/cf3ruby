@@ -10,7 +10,7 @@ attr_reader :panel, :hide
 def setup_the_trees
   control_panel do |panel|
     panel.look_feel 'Nimbus'
-    panel.slider :srand, (0..100), 50
+    panel.slider :srand, (0..100), 48.85
     @panel = panel
   end
 
