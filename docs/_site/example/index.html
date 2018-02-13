@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>A simple example with weighted shapes | ContextFreeArt gem for JRubyArt</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="A simple example with weighted shapes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy really see https://www.contextfreeart.org/ for original." />
+<meta property="og:description" content="The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy really see https://www.contextfreeart.org/ for original." />
+<link rel="canonical" href="http://localhost:4000/example/" />
+<meta property="og:url" content="http://localhost:4000/example/" />
+<meta property="og:site_name" content="ContextFreeArt gem for JRubyArt" />
+<script type="application/ld+json">
+{"description":"The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy really see https://www.contextfreeart.org/ for original.","@type":"WebPage","url":"http://localhost:4000/example/","headline":"A simple example with weighted shapes","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy really see https://www.contextfreeart.org/ for original.
+"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ContextFreeArt gem for JRubyArt</h1>
+      <h2 class="project-tagline">The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy really see https://www.contextfreeart.org/ for original.
+</h2>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># city.rb after city.cfdg</span>
+
+<span class="nb">require</span> <span class="s1">'cf3'</span>
+
+<span class="k">def</span> <span class="nf">setup_the_city</span>
+  <span class="vi">@city</span> <span class="o">=</span> <span class="no">ContextFree</span><span class="p">.</span><span class="nf">define</span> <span class="k">do</span>
+
+    <span class="n">shape</span> <span class="ss">:neighborhood</span> <span class="k">do</span>
+      <span class="nb">split</span> <span class="k">do</span>
+        <span class="n">block</span> <span class="ss">x: </span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="ss">y: </span><span class="o">-</span><span class="mf">0.25</span>
+        <span class="n">rewind</span>
+        <span class="n">block</span> <span class="ss">x: </span><span class="mf">0.25</span><span class="p">,</span> <span class="ss">y: </span><span class="o">-</span><span class="mf">0.25</span>
+        <span class="n">rewind</span>
+        <span class="n">block</span> <span class="ss">x: </span><span class="mf">0.25</span><span class="p">,</span> <span class="ss">y: </span><span class="mf">0.25</span>
+        <span class="n">rewind</span>
+        <span class="n">block</span> <span class="ss">x: </span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="ss">y: </span><span class="mf">0.25</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="n">shape</span> <span class="ss">:block</span> <span class="k">do</span>
+      <span class="n">buildings</span> <span class="ss">size: </span><span class="mf">0.85</span>
+    <span class="k">end</span>
+
+    <span class="n">shape</span> <span class="ss">:block</span><span class="p">,</span> <span class="mi">5</span> <span class="k">do</span>
+      <span class="n">neighborhood</span> <span class="ss">size: </span><span class="mf">0.5</span><span class="p">,</span> <span class="ss">rotation: </span><span class="nb">rand</span><span class="p">(</span><span class="o">-</span><span class="no">PI</span><span class="o">..</span><span class="no">PI</span><span class="p">),</span> <span class="ss">hue: </span><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="ss">brightness: </span><span class="nb">rand</span><span class="p">(</span><span class="mf">0.75</span><span class="o">..</span><span class="mf">1.75</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">shape</span> <span class="ss">:block</span><span class="p">,</span> <span class="mf">0.1</span> <span class="k">do</span>
+      <span class="c1"># Do nothing</span>
+    <span class="k">end</span>
+
+    <span class="n">shape</span> <span class="ss">:buildings</span> <span class="k">do</span>
+      <span class="n">square</span>
+    <span class="k">end</span>
+
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">settings</span>
+  <span class="n">size</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">600</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">setup</span>
+  <span class="n">sketch_title</span> <span class="s1">'City'</span>
+  <span class="n">setup_the_city</span>
+  <span class="vi">@background</span> <span class="o">=</span> <span class="n">color</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span>
+  <span class="n">draw_it</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">draw</span>
+  <span class="c1"># Do nothing</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">draw_it</span>
+  <span class="n">background</span> <span class="vi">@background</span>
+  <span class="vi">@city</span><span class="p">.</span><span class="nf">render</span> <span class="ss">:neighborhood</span><span class="p">,</span>
+               <span class="ss">start_x: </span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="ss">start_y: </span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+               <span class="ss">size: </span><span class="n">height</span><span class="o">/</span><span class="mf">2.5</span><span class="p">,</span> <span class="ss">color: </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">mouse_clicked</span>
+  <span class="n">draw_it</span>
+<span class="k">end</span>
+
+
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

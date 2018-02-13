@@ -1,0 +1,31 @@
+# Site settings
+port: 4000
+title: ContextFreeArt gem for JRubyArt
+email: mamba2928@yahoo.co.uk
+description: > # this means to ignore newlines until "baseurl:"
+  The cf3ruby gem is a kind of ruby DSL for contextfreeart. It is just a toy
+  really see https://www.contextfreeart.org/ for original.
+baseurl: "" # the subpath of your site, e.g. /blog
+regenerate: true
+url: "https://monkstone.github.io/cf3ruby"
+
+urls:
+  bugs: https://github.com/monkstone/cf3ruby/issues
+  github: https://github.com/monkstone/cf3ruby
+twitter_username: monkstoneT
+github_username:  monkstone
+
+theme: jekyll-theme-cayman
+
+syntax-highlighting:
+  enabled: true
+
+sass:
+  sass_dir: _sass
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
