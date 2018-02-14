@@ -51,19 +51,17 @@ module Processing
       total = @rules[rule_name][:total]
       @rules[rule_name][:procs] << [(total...(prob + total)), proc]
       @rules[rule_name][:total] += prob
-      unless ContextFree.method_defined? rule_name
-        self.class.class_eval do
-          eval <<-METH
-            def #{rule_name}(options)
-              merge_options(@values, options)
-              pick = determine_rule(#{rule_name.inspect})
-              unless (@values[:size] - @values[:stop_size]) < 0
-                prepare_to_draw
-                pick[1].call(options)
-              end
-            end
-          METH
+      return if ContextFree.method_defined? rule_name
+      self.class.class_eval do
+        eval <<-METH
+        def #{rule_name}(options)
+          merge_options(@values, options)
+          pick = determine_rule(#{rule_name.inspect})
+          return if (@values[:size] - @values[:stop_size]) < 0
+          prepare_to_draw
+          pick[1].call(options)
         end
+        METH
       end
     end
 
