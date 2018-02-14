@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     predict what you are going to get.
   EOF
   spec.summary       = %q{A ruby-DSL library for CF3 sketches}
-  spec.homepage      = 'http://learning-ruby-processing.blogspot.co.uk/'
+  spec.homepage      = "http://monkstone.github.io/cf3ruby/"
   spec.default_executable   = 'cf3samples'
   spec.licenses = %w(GPL-3.0 LGPL-2.0)
   spec.files         = `git ls-files`.split($/)
