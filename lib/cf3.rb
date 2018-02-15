@@ -52,7 +52,7 @@ module Processing
       @rules[rule_name][:procs] << [(total...(prob + total)), proc]
       @rules[rule_name][:total] += prob
       return if ContextFree.method_defined? rule_name
-      self.class.class_eval do
+      self.instance_eval do
         eval <<-METH
         def #{rule_name}(options)
           merge_options(@values, options)
