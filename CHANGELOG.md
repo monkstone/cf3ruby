@@ -1,3 +1,5 @@
+v1.2.0 Update to more recent JRuby, JRubyArt versions
+
 v1.0.1 Created a website in docs folder (gemfile points to new website, that links to wiki and back to repo). Re-factored `class_eval` to `instance_eval` and added guards, somewhat simplifies code
 
 v1.0.0 About time for a regular release number, fixed and update some examples NB: see also [Funatsufumiya san sketches][funniti]

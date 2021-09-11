@@ -4,11 +4,11 @@
 #####
 
 
-home = ENV["HOME"]
+home = ENV['HOME']
 local = home + '/cf3work'
 file = __FILE__
-require "pathname"
-require "fileutils"
+require 'pathname'
+require 'fileutils'
 file = Pathname.new(file).realpath
 
 sample_dir = File.expand_path(File.dirname(file) + "/../samples")

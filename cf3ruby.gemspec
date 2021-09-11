@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.executables   = ['cf3samples']
   spec.require_paths = ['lib']
-  spec.add_runtime_dependency 'jruby_art', '~> 1.4'
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake', '~> 12.0'
+  spec.add_runtime_dependency 'jruby_art', '~> 2.5'
+  spec.add_development_dependency 'rake', '~> 13.0'
 end

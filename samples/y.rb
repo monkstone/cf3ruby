@@ -35,7 +35,7 @@ def setup
   no_stroke
   color_mode RGB, 1
   draw_it
-  save_frame("y.png")
+  save_frame(data_path('y.png'))
 end
 
 

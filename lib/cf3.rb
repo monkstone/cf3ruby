@@ -52,7 +52,8 @@ module Processing
       @rules[rule_name][:procs] << [(total...(prob + total)), proc]
       @rules[rule_name][:total] += prob
       return if ContextFree.method_defined? rule_name
-      self.instance_eval do
+
+      instance_eval do
         eval <<-METH
         def #{rule_name}(options)
           merge_options(@values, options)
@@ -78,6 +79,7 @@ module Processing
     # Many of them have different strategies for being merged.
     def merge_options(old_ops, new_ops)
       return unless new_ops
+
       # Do size first
       old_ops[:size] *= new_ops.fetch(:size, 1.0)
       new_ops.each do |key, value|
