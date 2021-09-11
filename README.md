@@ -1,14 +1,14 @@
 # cf3ruby
 
-Now updated to be compatible with ruby 2.4, JRubyArt 1.4.4 (newer version of ruby-processing), and Processing 3+.*
+Now updated to be compatible with ruby 2.5, JRubyArt 2.5+ (newer version of ruby-processing), and Processing 3+.*
 
-**context-free DSL for ruby-2.4 and CF3 syntax**
+**context-free DSL for ruby-2.5 and CF3 syntax**
 
-Very much derived from [context-free.rb](https://github.com/jashkenas/context_free) by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 2.3 syntax. NB this version will not work with original ruby-processing.
+Very much derived from [context-free.rb](https://github.com/jashkenas/context_free) by Jeremy Ashkenas this version is updated to be more in line with CF3 and ruby 2.5 syntax. NB this version will not work with original ruby-processing.
 
 ## Installation
 
-To use this library you need install jruby (preferably jruby-9.1+), you will also need [ruby-processing/JRubyArt](https://github.com/ruby-processing/JRubyArt) to be installed (preferred version 1.4.4). There are three ways you can install this library:-
+To use this library you need install jruby (preferably jruby-9.2+), you will also need [ruby-processing/JRubyArt](https://github.com/ruby-processing/JRubyArt) to be installed. There are three ways you can install this library:-
 
 ***rake test and gem install***
 
@@ -17,7 +17,7 @@ Clone this repository,
 ```bash
 cd cf3ruby
 jruby -S rake test # builds and tests gem (mouse click on frame for test image to show)
-jruby -S gem install cf3-1.0.0.gem # may need sudo access
+jruby -S gem install cf3-1.2.0.gem # may need sudo access
 ```
 
 ***local bundle install***
